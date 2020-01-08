@@ -25,7 +25,7 @@ export default [
     path: '/login',
     name: 'login',
     meta: {
-      title: 'Login - 登录',
+      title: '登录',
       hideInMenu: true
     },
     component: () => import('@/view/login/login.vue')
@@ -136,10 +136,10 @@ export default [
         path: 'params/:id',
         name: 'params',
         meta: {
-          icon: 'md-flower',
+          icon: 'file',
           title: route => `${route.params.id}`,
-          notCache: true,
-          beforeCloseName: 'before_close_normal'
+          notCache: true
+          // beforeCloseName: 'before_close_normal'
         },
         component: () => import('@/view/argu-page/params.vue')
       },
@@ -147,7 +147,7 @@ export default [
         path: 'query',
         name: 'query',
         meta: {
-          icon: 'md-flower',
+          icon: 'file',
           title: route => `${route.query.id}`,
           notCache: true
         },

@@ -8,7 +8,7 @@
       <Card icon="log-in" title="欢迎登录" :bordered="false">
         <div class="form-con">
           <login-form @on-success-valid="handleSubmit"></login-form>
-          <p class="login-tip">输入任意用户名和密码即可</p>
+          <p class="login-tip"></p>
         </div>
       </Card>
     </div>
@@ -17,12 +17,22 @@
 
 <script>
 import LoginForm from '_c/login-form'
+import sha256 from 'sha256'
 export default {
   components: {
     LoginForm
   },
   methods: {
+    async loginEvent ({ userName, password }) {
+      let res = await this.$ajax.post('login', {
+        userName: userName,
+        pwd: sha256(password)
+      })
+      return res
+    },
+
     handleSubmit ({ userName, password }) {
+      // this.loginEvent({ userName, password })
       switch (userName) {
         case 'user':
           localStorage.setItem('homeName', 'home')
