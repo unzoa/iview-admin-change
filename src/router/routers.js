@@ -16,6 +16,10 @@ import Main from '@/components/main'
  * }
  */
 
+function isUpload (name) {
+  return localStorage.homeName === 'upload_page'
+}
+
 export default [
   {
     path: '/login',
@@ -28,24 +32,20 @@ export default [
   },
 
   {
-    path: '/',
-    name: '_home',
+    path: isUpload() ? '/home_con' : '/',
+    name: 'home_con',
     redirect: '/home',
     component: Main,
     meta: {
-      hideInBread: true,
-      hideInMenu: false,
-      notCache: true
+      hideInBread: true
     },
     children: [
       {
         path: '/home',
         name: 'home',
         meta: {
-          hideInMenu: false,
           title: '所有任务',
-          notCache: true,
-          icon: 'md-home'
+          icon: 'file'
         },
         component: () => import('@/view/home')
       }
@@ -53,18 +53,19 @@ export default [
   },
 
   {
-    path: '/upload',
+    path: isUpload() ? '/' : '/upload',
     name: 'upload',
+    redirect: '/upload_page',
     component: Main,
     meta: {
       hideInBread: true
     },
     children: [
       {
-        path: 'upload_page',
+        path: '/upload_page',
         name: 'upload_page',
         meta: {
-          icon: 'md-notifications',
+          icon: 'upload',
           title: '上传文件'
         },
         component: () => import('@/view/upload/upload.vue')
@@ -77,45 +78,17 @@ export default [
     name: 'system',
     component: Main,
     meta: {
-      hideInBread: true
+      hideInBread: false,
+      title: '系统管理',
+      icon: 'setting'
     },
     children: [
-      {
-        path: 'system_page',
-        name: 'system_page',
-        meta: {
-          icon: 'md-flower',
-          title: '系统管理'
-        },
-        component: () => import('@/view/system/system.vue'),
-
-        // children: [
-        //   {
-        //     path: 'haha',
-        //     name: 'haha',
-        //     meta: {
-        //       icon: 'md-flower',
-        //       title: '系统管理-haha'
-        //     },
-        //     component: () => import('@/view/system/pages/haha.vue')
-        //   },
-        //   {
-        //     path: 'lala',
-        //     name: 'lala',
-        //     meta: {
-        //       icon: 'md-flower',
-        //       title: '系统管理-lala'
-        //     },
-        //     component: () => import('@/view/system/pages/lala.vue')
-        //   }
-        // ]
-      },
       {
         path: 'haha',
         name: 'haha',
         meta: {
-          icon: 'md-flower',
-          title: '系统管理-haha'
+          icon: 'user',
+          title: 'haha'
         },
         component: () => import('@/view/system/pages/haha.vue')
       },
@@ -123,8 +96,8 @@ export default [
         path: 'lala',
         name: 'lala',
         meta: {
-          icon: 'md-flower',
-          title: '系统管理-lala'
+          icon: 'xianlu',
+          title: 'lala'
         },
         component: () => import('@/view/system/pages/lala.vue')
       }
@@ -143,7 +116,7 @@ export default [
         path: 'audit_page',
         name: 'audit_page',
         meta: {
-          icon: 'md-flower',
+          icon: 'audit',
           title: '系统审计'
         },
         component: () => import('@/view/audit/audit.vue')
@@ -164,7 +137,7 @@ export default [
         name: 'params',
         meta: {
           icon: 'md-flower',
-          title: route => `{{ params }}-${route.params.id}`,
+          title: route => `${route.params.id}`,
           notCache: true,
           beforeCloseName: 'before_close_normal'
         },
@@ -175,39 +148,11 @@ export default [
         name: 'query',
         meta: {
           icon: 'md-flower',
-          title: route => `{{ query }}-${route.query.id}`,
+          title: route => `${route.query.id}`,
           notCache: true
         },
         component: () => import('@/view/argu-page/query.vue')
       }
     ]
   }
-  // {
-  //   path: '',
-  //   name: 'doc',
-  //   meta: {
-  //     title: '文档',
-  //     href: 'https://lison16.github.io/iview-admin-doc/#/',
-  //     icon: 'ios-book'
-  //   }
-  // },
-  // {
-  //   path: '/join',
-  //   name: 'join',
-  //   component: Main,
-  //   meta: {
-  //     hideInBread: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'join_page',
-  //       name: 'join_page',
-  //       meta: {
-  //         icon: '_qq',
-  //         title: 'QQ群'
-  //       },
-  //       component: () => import('@/view/join-page.vue')
-  //     }
-  //   ]
-  // },
 ]

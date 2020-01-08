@@ -31,5 +31,7 @@ export default {
 </script>
 
 <style>
-
+  .ivu-menu-submenu-title > i {
+    margin-right: 12px!important;
+  }
 </style>

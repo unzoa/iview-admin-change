@@ -1,0 +1,72 @@
+{
+  "id": "1603127",
+  "name": "iview-admin-change",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11232187",
+      "name": "upload_to_cload",
+      "font_class": "-upload",
+      "unicode": "e7e0",
+      "unicode_decimal": 59360
+    },
+    {
+      "icon_id": "12727582",
+      "name": "file",
+      "font_class": "-file",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "12728466",
+      "name": "audit",
+      "font_class": "-audit",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "12728569",
+      "name": "danyilaiyuan",
+      "font_class": "-source",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "12728570",
+      "name": "Group-",
+      "font_class": "-device",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "12728571",
+      "name": "user",
+      "font_class": "-user",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "12728572",
+      "name": "tag",
+      "font_class": "-tag",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "12728573",
+      "name": "setting",
+      "font_class": "-setting",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "12728574",
+      "name": "xianlu",
+      "font_class": "-xianlu",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}

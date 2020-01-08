@@ -23,9 +23,21 @@ export default {
   },
   methods: {
     handleSubmit ({ userName, password }) {
-      this.$router.push({
-        name: this.$config.homeName
-      })
+      switch (userName) {
+        case 'user':
+          localStorage.setItem('homeName', 'home')
+          break
+
+        case 'upload':
+          localStorage.setItem('homeName', 'upload_page')
+          break
+      }
+
+      // 需要项目重新加载config
+      window.location.href =
+        window.location.protocol + '//' +
+        window.location.hostname +
+        (window.location.port ? ':' + window.location.port : '') + '/'
     }
   }
 }

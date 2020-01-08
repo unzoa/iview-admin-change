@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import routes from './routers'
 import store from '@/store'
 import iView from 'iview'
+import { setTitle } from '@/libs/util'
 import config from '@/config'
 const { homeName } = config
 
@@ -47,6 +48,7 @@ const LOGIN_PAGE_NAME = 'login'
 // })
 
 router.afterEach(to => {
+  setTitle(to, router.app)
   iView.LoadingBar.finish()
   window.scrollTo(0, 0)
 })
