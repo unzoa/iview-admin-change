@@ -1,6 +1,8 @@
 <template>
   <div class="side-menu-wrapper">
     <slot></slot>
+
+    <!-- 展开式 -->
     <Menu ref="menu" v-show="!collapsed" :active-name="activeName" :open-names="openedNames" :accordion="accordion" :theme="theme" width="auto" @on-select="handleSelect">
       <template v-for="item in menuList">
         <template v-if="item.children && item.children.length === 1">
@@ -13,6 +15,8 @@
         </template>
       </template>
     </Menu>
+
+    <!-- 折叠式 -->
     <div class="menu-collapsed" v-show="collapsed" :list="menuList">
       <template v-for="item in menuList">
         <collapsed-menu v-if="item.children && item.children.length > 1" @on-click="handleSelect" hide-title :root-icon-size="rootIconSize" :icon-size="iconSize" :theme="theme" :parent-item="item" :key="`drop-menu-${item.name}`"></collapsed-menu>

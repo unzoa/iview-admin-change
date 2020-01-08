@@ -26,13 +26,15 @@ export default [
     },
     component: () => import('@/view/login/login.vue')
   },
+
   {
     path: '/',
     name: '_home',
     redirect: '/home',
     component: Main,
     meta: {
-      hideInMenu: true,
+      hideInBread: true,
+      hideInMenu: false,
       notCache: true
     },
     children: [
@@ -40,8 +42,8 @@ export default [
         path: '/home',
         name: 'home',
         meta: {
-          hideInMenu: true,
-          title: '首页',
+          hideInMenu: false,
+          title: '所有任务',
           notCache: true,
           icon: 'md-home'
         },
@@ -49,25 +51,106 @@ export default [
       }
     ]
   },
-  // {
-  //   path: '/message',
-  //   name: 'message',
-  //   component: Main,
-  //   meta: {
-  //     hideInBread: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'message_page',
-  //       name: 'message_page',
-  //       meta: {
-  //         icon: 'md-notifications',
-  //         title: '消息中心'
-  //       },
-  //       component: () => import('@/view/single-page/message/index.vue')
-  //     }
-  //   ]
-  // },
+
+  {
+    path: '/upload',
+    name: 'upload',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'upload_page',
+        name: 'upload_page',
+        meta: {
+          icon: 'md-notifications',
+          title: '上传文件'
+        },
+        component: () => import('@/view/upload/upload.vue')
+      }
+    ]
+  },
+
+  {
+    path: '/system',
+    name: 'system',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'system_page',
+        name: 'system_page',
+        meta: {
+          icon: 'md-flower',
+          title: '系统管理'
+        },
+        component: () => import('@/view/system/system.vue'),
+
+        // children: [
+        //   {
+        //     path: 'haha',
+        //     name: 'haha',
+        //     meta: {
+        //       icon: 'md-flower',
+        //       title: '系统管理-haha'
+        //     },
+        //     component: () => import('@/view/system/pages/haha.vue')
+        //   },
+        //   {
+        //     path: 'lala',
+        //     name: 'lala',
+        //     meta: {
+        //       icon: 'md-flower',
+        //       title: '系统管理-lala'
+        //     },
+        //     component: () => import('@/view/system/pages/lala.vue')
+        //   }
+        // ]
+      },
+      {
+        path: 'haha',
+        name: 'haha',
+        meta: {
+          icon: 'md-flower',
+          title: '系统管理-haha'
+        },
+        component: () => import('@/view/system/pages/haha.vue')
+      },
+      {
+        path: 'lala',
+        name: 'lala',
+        meta: {
+          icon: 'md-flower',
+          title: '系统管理-lala'
+        },
+        component: () => import('@/view/system/pages/lala.vue')
+      }
+    ]
+  },
+
+  {
+    path: '/audit',
+    name: 'audit',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: 'audit_page',
+        name: 'audit_page',
+        meta: {
+          icon: 'md-flower',
+          title: '系统审计'
+        },
+        component: () => import('@/view/audit/audit.vue')
+      }
+    ]
+  },
+
   {
     path: '/argu',
     name: 'argu',
